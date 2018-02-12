@@ -3,14 +3,13 @@
 ###############################################################
 #
 # CSCI 305 - Ruby Programming Lab
-#
-# <firstname> <lastname>
-# <email-address>
+# <Cory> <Petersen>
+# <peter.cory0@gmail.com>
 #
 ###############################################################
 
 $bigrams = Hash.new # The Bigram data structure
-$name = "<firstname> <lastname>"
+$name = "<Cory> <Petersen>"
 
 # function to process each line of a file and extract the song titles
 def process_file(file_name)
@@ -28,6 +27,20 @@ def process_file(file_name)
 	end
 end
 
+def cleanup_title(file_cleanup)
+	puts "finding titles..."
+	
+	begin 
+		IO.foreach(file_cleanup) do |line|
+		song_title = /^(?:[^|]*\|){3}([^|]*)/
+		puts song_title
+		
+		end
+	
+	puts "song titles found"
+	
+end
+
 # Executes the program
 def main_loop()
 	puts "CSCI 305 Ruby Lab submitted by #{$name}"
@@ -39,6 +52,7 @@ def main_loop()
 
 	# process the file
 	process_file(ARGV[0])
+	file_cleanup(ARGV[0])
 
 	# Get user input
 end
